@@ -15,8 +15,7 @@ while 1:
     resp = requests.get('http://readthedocs.org/api/v1/build/?project__slug=time-test&format=json&limit=1&type=html')
 
     five_minutes_ago = datetime.datetime.now() - datetime.timedelta(minutes=5)
-    for obj in resp.json()['objects']:
-        print "Test: %s" % str(obj['success'] == True)
-        print "Test: %s" % str(parse(obj['date']) > five_minutes_ago)
-
+    obj = resp.json()['objects'][0]
+    print "Test: %s" % str(obj['success'] == True)
+    print "Test: %s" % str(parse(obj['date']) > five_minutes_ago)
     time.sleep(60)
