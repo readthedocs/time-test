@@ -16,7 +16,7 @@ while 1:
 
     five_minutes_ago = datetime.datetime.now() - datetime.timedelta(minutes=5)
     for obj in resp.json()['objects']:
-        print "Test: %s" % obj['success'] == True
-        print "Test: %s" % parse(obj['date']) > five_minutes_ago
+        print "Test: %s" % str(obj['success'] == True)
+        print "Test: %s" % str(parse(obj['date']) > five_minutes_ago)
 
     time.sleep(60)
