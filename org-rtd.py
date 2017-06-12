@@ -15,8 +15,9 @@ while 1:
         time_file.write('Time\n====\n\n')
         time_file.write('%s' % datetime.datetime.now())
     os.system('git commit -am Time && git push origin master')
-    resp = requests.get('{host}/api/v1/build/?project__slug={slug}&format=json&limit=1&type=html'.format(host=HOST, slug=SLUG))
-
+    URL = '{host}/api/v1/build/?project__slug={slug}&format=json&limit=1&type=html'.format(host=HOST, slug=SLUG)
+    print URL
+    resp = requests.get(URL)
     five_minutes_ago = datetime.datetime.now() - datetime.timedelta(minutes=5)
     obj = resp.json()['objects'][0]
     print "Test: %s" % str(obj['success'] == True)
