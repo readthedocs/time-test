@@ -19,7 +19,7 @@ while 1:
     print URL
     resp = requests.get(URL)
     five_minutes_ago = datetime.datetime.now() - datetime.timedelta(minutes=5)
-    obj = resp.json()['objects'][0]
+    obj = resp.json()['results'][0]
     print "Test: %s" % str(obj['success'] == True)
     print "Test: %s" % str(parse(obj['date']) > five_minutes_ago)
     time.sleep(60)
