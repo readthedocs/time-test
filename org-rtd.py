@@ -15,7 +15,7 @@ while 1:
         time_file.write('Time\n====\n\n')
         time_file.write('%s' % datetime.datetime.now())
     os.system('git commit -am Time && git push origin master')
-    URL = '{host}/api/v1/build/?project__slug={slug}&format=json&limit=1&type=html'.format(host=HOST, slug=SLUG)
+    URL = '{host}/api/v2/build/?project__slug={slug}&format=json&limit=1'.format(host=HOST, slug=SLUG)
     print URL
     resp = requests.get(URL)
     five_minutes_ago = datetime.datetime.now() - datetime.timedelta(minutes=5)
