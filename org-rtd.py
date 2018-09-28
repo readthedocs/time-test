@@ -22,5 +22,5 @@ while 1:
     obj = resp.json()['results'][0]
     print("Test: %s" % str(obj['success'] == True))
     print("Test: %s" % str(parse(obj['date']) > five_minutes_ago))
-    print("%s, %s" % (str(parse(obj['date']) > five_minutes_ago)))
+    print("%s, %s" % (str(parse(obj['date']), five_minutes_ago)))
     time.sleep(60)
