@@ -18,7 +18,7 @@ while 1:
     URL = '{host}/api/v2/build/?project__slug={slug}&format=json&limit=1'.format(host=HOST, slug=SLUG)
     print(URL)
     resp = requests.get(URL)
-    five_minutes_ago = datetime.datetime.now() - datetime.timedelta(minutes=5)
+    five_minutes_ago = datetime.datetime.utcnow() - datetime.timedelta(minutes=5)
     obj = resp.json()['results'][0]
     print("Test: %s" % str(obj['success'] == True))
     print("Test: %s" % str(parse(obj['date']) > five_minutes_ago))
