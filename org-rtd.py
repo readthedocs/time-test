@@ -3,12 +3,15 @@
 import os
 import datetime
 import time
+from pytz import timezone   
 
 import requests
 from dateutil.parser import parse
 
 HOST = 'https://readthedocs.org'
 SLUG = 'time-test'
+
+central = timezone('US/Central')
 
 while 1:
     with open('time.rst', 'w') as time_file:
@@ -18,7 +21,8 @@ while 1:
     URL = '{host}/api/v2/build/?project__slug={slug}&format=json&limit=1'.format(host=HOST, slug=SLUG)
     print(URL)
     resp = requests.get(URL)
-    five_minutes_ago = datetime.datetime.utcnow() - datetime.timedelta(minutes=5)
+    central_time = datetime.now(central)
+    five_minutes_ago = central_time - datetime.timedelta(minutes=5)
     obj = resp.json()['results'][0]
     print("Test: %s" % str(obj['success'] == True))
     print("Test: %s" % str(parse(obj['date']) > five_minutes_ago))
