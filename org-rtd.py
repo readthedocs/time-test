@@ -24,7 +24,7 @@ while 1:
     central_time = datetime.datetime.now(central).replace(tzinfo=None)
     five_minutes_ago = central_time - datetime.timedelta(minutes=5)
     obj = resp.json()['results'][0]
-    print("Test: %s" % str(obj['success'] == True))
-    print("Test: %s" % str(parse(obj['date']) > five_minutes_ago))
+    print("Build Test: %s" % str(obj['success'] == True))
+    print("Time Test: %s" % str(parse(obj['date']) > five_minutes_ago))
     print("%s, %s" % (str(parse(obj['date'])), five_minutes_ago))
     time.sleep(60)
