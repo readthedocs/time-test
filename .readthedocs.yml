@@ -1,6 +1,5 @@
 version: 2
-formats:
-    - none
+formats: none
 
 python:
   version: 3.6
