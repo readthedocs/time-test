@@ -1,3 +1,6 @@
+version: 2
 formats:
     - epub
 
+python:
+  version: 3.6
