@@ -23,7 +23,6 @@ while 1:
     five_minutes_ago = utc_time - datetime.timedelta(minutes=5)
     obj = resp.json()['results'][0]
     print("Build Test: %s" % str(obj['success'] == True))
-    import ipdb; ipdb.set_trace()
     print("Time Test: %s" % str(parse(obj['date']) > five_minutes_ago))
     print("%s, %s" % (str(parse(obj['date'])), five_minutes_ago))
     time.sleep(60)
