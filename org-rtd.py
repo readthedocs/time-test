@@ -11,8 +11,6 @@ from dateutil.parser import parse
 HOST = 'https://readthedocs.org'
 SLUG = 'time-test'
 
-central = timezone('US/Central')
-
 while 1:
     with open('time.rst', 'w') as time_file:
         time_file.write('Time\n====\n\n')
@@ -21,8 +19,8 @@ while 1:
     URL = '{host}/api/v2/build/?project__slug={slug}&format=json&limit=1'.format(host=HOST, slug=SLUG)
     print(URL)
     resp = requests.get(URL)
-    central_time = datetime.datetime.now(central).replace(tzinfo=None)
-    five_minutes_ago = central_time - datetime.timedelta(minutes=5)
+    time = datetime.datetime.utcnow()
+    five_minutes_ago = time - datetime.timedelta(minutes=5)
     obj = resp.json()['results'][0]
     print("Build Test: %s" % str(obj['success'] == True))
     print("Time Test: %s" % str(parse(obj['date']) > five_minutes_ago))
