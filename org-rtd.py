@@ -3,7 +3,7 @@
 import os
 import datetime
 import time
-from pytz import timezone   
+import pytz
 
 import requests
 from dateutil.parser import parse
@@ -19,7 +19,7 @@ while 1:
     URL = '{host}/api/v2/build/?project__slug={slug}&format=json&limit=1'.format(host=HOST, slug=SLUG)
     print(URL)
     resp = requests.get(URL)
-    time = datetime.datetime.utcnow()
+    time = datetime.datetime.now(tz=pytz.utc)
     five_minutes_ago = time - datetime.timedelta(minutes=5)
     obj = resp.json()['results'][0]
     print("Build Test: %s" % str(obj['success'] == True))
