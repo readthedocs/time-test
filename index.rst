@@ -9,4 +9,7 @@ The time is now:
 
 Thanks for watching.
 
-PR update.
+PR update:
+
+* 1
+* 2
