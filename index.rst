@@ -8,3 +8,4 @@ The time is now:
    time
 
 Thanks for watching!
+Please stay tuned for more timely goodness.
