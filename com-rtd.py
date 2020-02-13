@@ -34,7 +34,7 @@ os.system('git commit -am Time && git push origin master')
 with requests.Session() as session:
     login_resp = login('{host}/accounts/login/'.format(host=HOST), session)
 
-    print "Current Time: %s " % datetime.datetime.now()
+    print("Current Time: %s " % datetime.datetime.now())
     api_resp = session.get(
         '{host}/api/v1/build/?project__slug={slug}&format=json&limit=1&type=html'.format(host=HOST, slug=SLUG),
     )
@@ -64,15 +64,15 @@ with requests.Session() as session:
 
     pyq = PyQuery(html_resp.content)
     page_time = ' '.join(pyq('#time').text().split(' ')[-2:])
-    print "On Page Time: %s" % page_time
+    print("On Page Time: %s" % page_time)
     if five_minutes_ago > parse(page_time):
-        print "Time on page is Old: %s" % page_time
+        print("Time on page is Old: %s" % page_time)
         passing = False
 
     # Final bits
     if passing:
-        print "OK"
+        print("OK")
         sys.exit(0)
     else:
-        print "FAIL"
+        print("FAIL")
         sys.exit(2)
