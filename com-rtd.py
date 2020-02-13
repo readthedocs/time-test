@@ -39,9 +39,9 @@ with requests.Session() as session:
         '{host}/api/v1/build/?project__slug={slug}&format=json&limit=1&type=html'.format(host=HOST, slug=SLUG),
     )
 
-    html_resp = session.get(
-        '{host}/docs/{slug}/en/latest/time.html'.format(host=HOST, slug=SLUG),
-    )
+    url = '{host}/docs/{slug}/en/latest/time.html'.format(host=HOST, slug=SLUG),
+    print(url)
+    html_resp = session.get(url)
 
     five_minutes_ago = datetime.datetime.now() - datetime.timedelta(minutes=5)
 
