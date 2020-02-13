@@ -66,7 +66,7 @@ with requests.Session() as session:
     import ipdb; ipdb.set_trace()
     page_time = ' '.join(pyq('#time').text().split(' ')[-2:])
     print("On Page Time: %s" % page_time)
-    if five_minutes_ago > parse(page_time):
+    if page_time and five_minutes_ago > parse(page_time):
         print("Time on page is Old: %s" % page_time)
         passing = False
 
