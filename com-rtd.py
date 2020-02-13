@@ -63,7 +63,6 @@ with requests.Session() as session:
     # HTML tests
 
     pyq = PyQuery(html_resp.content)
-    import ipdb; ipdb.set_trace()
     page_time = ' '.join(pyq('#time').text().split(' ')[-2:])
     print("On Page Time: %s" % page_time)
     if page_time and five_minutes_ago > parse(page_time):
@@ -73,7 +72,7 @@ with requests.Session() as session:
     # Final bits
     if passing:
         print("OK")
-        sys.exit(0)
+        #sys.exit(0)
     else:
         print("FAIL")
-        sys.exit(2)
+        #sys.exit(2)
