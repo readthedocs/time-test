@@ -9,3 +9,9 @@ The time is now:
 
 Thanks for watching!
 Please stay tuned for more timely goodness.
+
+
+Time
+----
+
+{{ date }}
