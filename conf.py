@@ -1,6 +1,10 @@
 import datetime
+import os
+import sys
 
-from .jinja import render_rst_with_jinja
+sys.path.insert(0, os.path.abspath('.'))
+
+from jinja import render_rst_with_jinja
 
 # Default settings
 project = 'Time Test'
