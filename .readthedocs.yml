@@ -1,6 +1,5 @@
 version: 2
-formats: 
-  - pdf
+formats: []
 
 python:
   version: 3.6
