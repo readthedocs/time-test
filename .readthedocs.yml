@@ -10,7 +10,7 @@ sphinx:
   # https://github.com/rtfd/readthedocs.org/issues/4638
   builder: html
 
-  configuration: docs/conf.py
+  configuration: conf.py
   fail_on_warning: false
 
 python:
