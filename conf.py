@@ -1,5 +1,7 @@
 import datetime
 
+from .jinja import render_rst_with_jinja
+
 # Default settings
 project = 'Time Test'
 master_doc = 'index'
@@ -8,5 +10,9 @@ master_doc = 'index'
 html_theme = 'sphinx_rtd_theme'
 
 html_context = {
-   'date': datetime.datetime.utcnow()
+    'date': datetime.datetime.utcnow()
 }
+
+
+def setup(app):
+    app.connect("source-read", render_rst_with_jinja)
