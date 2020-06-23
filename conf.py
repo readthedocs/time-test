@@ -14,7 +14,7 @@ master_doc = 'index'
 html_theme = 'sphinx_rtd_theme'
 
 html_context = {
-    'date': datetime.datetime.utcnow()
+    'date': repr(datetime.datetime.utcnow())
 }
 
 
