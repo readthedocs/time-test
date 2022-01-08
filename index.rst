@@ -1,4 +1,4 @@
-Time
+birinchi_dars
 =====
 
 The time is now:
