@@ -2,7 +2,8 @@ version: 2
 formats: []
 
 build:
-  os:
+  os: "ubuntu-22.04"
+  tools:
     python: "3.10"
 
 sphinx:
