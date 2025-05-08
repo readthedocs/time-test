@@ -7,4 +7,6 @@ sphinx_rtd_theme
 #   File "site-packages/snowballstemmer/__init__.py", line 27, in stemmer
 #     raise KeyError("Stemming algorithm '%s' not found" % lang)
 # KeyError: "Stemming algorithm 'porter' not found"
+#
+# See more at https://github.com/snowballstem/snowball/issues/229
 snowballstemmer<3
